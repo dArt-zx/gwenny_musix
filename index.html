@@ -1,77 +1,79 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>gweny tunezz 🎵</title>
   <style>
     @font-face {
-    font-family: 'Futura Extra Bold';
-    src: url('Futura-ExtraBold.otf') format('opentype');
-  }
-  
-  body {
-    background-color: #002a42;
-    color: #c40003;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    margin: 0;
-  }
-  
-  #unlock-container {
-    font-family: 'Futura Extra Bold';
-    color: #c40003;
-    background-color: #002a42;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    text-align: center;
-  }
-  
-  #lyrics {
-    font-family: 'Futura Extra Bold';
-    white-space: pre-line;
-    font-size: 30px;
-    text-align: center;
-  }
+      font-family: 'Futura Extra Bold';
+      src: url('Futura-ExtraBold.otf') format('opentype');
+    }
 
-  #passcode {
-    font-family: 'Futura Extra Bold';
-    background-color: #ffcccb;
-    border: 2px solid #f49ac2;
-    color: #c40003;
-    padding: 15px;
-    font-size: 20px;
-    margin-bottom: 20px;
-    width: 250px;
-    text-align: center;
-    outline: none;
-    border-radius: 25px;
-    transition: all 0.3s ease-in-out;
-  }
-  
-  #passcode:focus {
-    border-color: #ff80bf; 
-    box-shadow: 0 0 10px rgba(255, 128, 191, 0.5); 
-  }
-  
-  #submitBtn {
-    font-family: 'Futura Extra Bold';
-    background-color: #ff80bf;
-    border: none;
-    color: white;
-    padding: 12px 24px;
-    font-size: 18px;
-    cursor: pointer;
-    border-radius: 25px;
-    transition: all 0.3s ease-in-out;
-  }
+    body {
+      background-color: #002a42;
+      color: #c40003;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+
+    #unlock-container {
+      font-family: 'Futura Extra Bold';
+      color: #c40003;
+      background-color: #002a42;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      text-align: center;
+    }
+
+    #lyrics {
+      font-family: 'Futura Extra Bold';
+      white-space: pre-line;
+      font-size: 30px;
+      text-align: center;
+    }
+
+    #passcode {
+      font-family: 'Futura Extra Bold';
+      background-color: #ffcccb;
+      border: 2px solid #f49ac2;
+      color: #c40003;
+      padding: 15px;
+      font-size: 20px;
+      margin-bottom: 20px;
+      width: 250px;
+      text-align: center;
+      outline: none;
+      border-radius: 25px;
+      transition: all 0.3s ease-in-out;
+    }
+
+    #passcode:focus {
+      border-color: #ff80bf;
+      box-shadow: 0 0 10px rgba(255, 128, 191, 0.5);
+    }
+
+    #submitBtn {
+      font-family: 'Futura Extra Bold';
+      background-color: #ff80bf;
+      border: none;
+      color: white;
+      padding: 12px 24px;
+      font-size: 18px;
+      cursor: pointer;
+      border-radius: 25px;
+      transition: all 0.3s ease-in-out;
+    }
   </style>
 </head>
+
 <body>
   <div id="unlock-container">
     <h1>enter ur secret passcode ma'am</h1>
@@ -107,7 +109,7 @@
     const delays = [600, 700, 1000, 4600, 1000, 3600, 1700, 2000, 900, 1200, 500];
     const typingDelay = 100;
 
-    submitBtn.addEventListener("click", function() {
+    submitBtn.addEventListener("click", function () {
       const enteredPasscode = passcodeInput.value.trim();
       if (enteredPasscode === correctPasscode) {
         statusMessage.textContent = "Sending 😙😙😙 to kizX...";
@@ -135,4 +137,5 @@
     }
   </script>
 </body>
+
 </html>
