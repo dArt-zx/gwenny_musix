@@ -4,17 +4,17 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>gweny tunezz 🎵</title>
-  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div id="unlock-container">
-      <h1>Enter Passcode to Unlock</h1>
-      <input type="text" id="passcode" placeholder="Enter passcode" />
-      <button id="submitBtn">Submit</button>
-      <p id="statusMessage"></p>
-    </div>
-  
-    <div id="lyrics"></div>
+  <div id="unlock-container">
+    <h1>enter ur secret passcode ma'am</h1>
+    <input type="text" id="passcode" placeholder="Enter passcode" />
+    <button id="submitBtn">Submit</button>
+    <p id="statusMessage"></p>
+  </div>
+
+  <div id="lyrics" style="white-space: pre-line; display: none;"></div>
 
   <script>
     const correctPasscode = "😙😙😙";
@@ -24,8 +24,21 @@
     const unlockContainer = document.getElementById("unlock-container");
     const lyricsDiv = document.getElementById("lyrics");
 
-    const lines = JSON.parse('{{ lyrics | tojson | safe }}');
-    const delays = JSON.parse('{{ delays | tojson | safe }}');
+    const lines = [
+      "So I'ma love you every night like it's the last night",
+      "Like it's the last night",
+      "If the world was ending",
+      "I'd wanna be next to you",
+      "If the party was over",
+      "And our time on Earth was through",
+      "I'd wanna hold you just for a while",
+      "And die with a smile",
+      "If the world was ending",
+      "I'd wanna be next to you",
+      "Right next to you"
+    ];
+
+    const delays = [600, 700, 1000, 4600, 1000, 3600, 1700, 2000, 900, 1200, 500];
     const typingDelay = 100;
 
     submitBtn.addEventListener("click", function() {
