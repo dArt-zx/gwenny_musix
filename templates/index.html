@@ -3,17 +3,45 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Typing Lyrics</title>
+  <title>gweny tunezz 🎵</title>
   <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
 <body>
-  <div id="lyrics"></div>
+    <div id="unlock-container">
+      <h1>Enter Passcode to Unlock</h1>
+      <input type="text" id="passcode" placeholder="Enter passcode" />
+      <button id="submitBtn">Submit</button>
+      <p id="statusMessage"></p>
+    </div>
+  
+    <div id="lyrics"></div>
 
   <script>
+    const correctPasscode = "😙😙😙";
+    const submitBtn = document.getElementById("submitBtn");
+    const passcodeInput = document.getElementById("passcode");
+    const statusMessage = document.getElementById("statusMessage");
+    const unlockContainer = document.getElementById("unlock-container");
+    const lyricsDiv = document.getElementById("lyrics");
+
     const lines = JSON.parse('{{ lyrics | tojson | safe }}');
     const delays = JSON.parse('{{ delays | tojson | safe }}');
     const typingDelay = 100;
-    const lyricsDiv = document.getElementById("lyrics");
+
+    submitBtn.addEventListener("click", function() {
+      const enteredPasscode = passcodeInput.value.trim();
+      if (enteredPasscode === correctPasscode) {
+        statusMessage.textContent = "Sending 😙😙😙 to kizX...";
+        setTimeout(() => {
+          unlockContainer.style.display = "none";
+          lyricsDiv.style.display = "block";
+          typeLyrics();
+        }, 2000);
+      } else {
+        statusMessage.textContent = "Incorrect passcode. Try again!";
+        statusMessage.style.color = "red";
+      }
+    });
 
     async function typeLyrics() {
       for (let i = 0; i < lines.length; i++) {
@@ -26,8 +54,6 @@
         await new Promise(resolve => setTimeout(resolve, delays[i]));
       }
     }
-
-    typeLyrics();
   </script>
 </body>
 </html>
