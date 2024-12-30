@@ -1,0 +1,23 @@
+@font-face {
+    font-family: 'Futura Extra Bold';
+    src: url('{{ url_for("static", filename="fonts/Futura-ExtraBold.otf") }}') format('opentype');
+  }
+  
+  body {
+    font-family: Arial, sans-serif;
+    background-color: #121212;
+    color: #f2f2f2;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+  }
+  
+  #lyrics {
+    font-family: 'Futura Extra Bold', Arial, sans-serif; /* Apply the custom font */
+    white-space: pre-line;
+    font-size: 1.5rem;
+    text-align: center;
+  }
+  

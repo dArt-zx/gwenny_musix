@@ -1,7 +1,10 @@
-import time
+from flask import Flask, render_template
 
-def print_lyrics():
-    lines = [
+app = Flask(__name__)
+
+@app.route('/')
+def index():
+    lyrics = [
         "So I'ma love you every night like it's the last night",
         "Like it's the last night",
         "If the world was ending",
@@ -14,14 +17,9 @@ def print_lyrics():
         "I'd wanna be next to you",
         "Right next to you"
     ]
+    delays = [600, 700, 1000, 4600, 1000, 3600, 1700, 2000, 900, 1200, 500]
 
-    delays = [0.6, 0.7, 1.0, 4.6, 1.0, 3.6, 1.7, 2.0, 0.9, 1.2, 0.5]
+    return render_template('index.html', lyrics=lyrics, delays=delays)
 
-    for i, line in enumerate(lines):
-        for char in line:
-            print(char, end='', flush=True)
-            time.sleep(0.1)
-        print()
-        time.sleep(delays[i])
-
-print_lyrics()
+if __name__ == '__main__':
+    app.run(debug=True)

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Typing Lyrics</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+  <div id="lyrics"></div>
+
+  <script>
+    const lines = JSON.parse('{{ lyrics | tojson | safe }}');
+    const delays = JSON.parse('{{ delays | tojson | safe }}');
+    const typingDelay = 100;
+    const lyricsDiv = document.getElementById("lyrics");
+
+    async function typeLyrics() {
+      for (let i = 0; i < lines.length; i++) {
+        const line = lines[i];
+        for (const char of line) {
+          lyricsDiv.textContent += char;
+          await new Promise(resolve => setTimeout(resolve, typingDelay));
+        }
+        lyricsDiv.textContent += "\n";
+        await new Promise(resolve => setTimeout(resolve, delays[i]));
+      }
+    }
+
+    typeLyrics();
+  </script>
+</body>
+</html>
